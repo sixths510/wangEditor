@@ -4168,7 +4168,7 @@
                 }
             }
 
-            editor.cmd.do('insertHTML', '<img src="' + link + '" style="max-width:100%;"/>');
+            editor.cmd.do('insertHTML', '<img src="' + link + '" class="richTextImg" style="max-width:100%;"/>');
 
             // 验证图片 url 是否有效，无效的话给出提示
             var img = document.createElement('img');
@@ -4673,7 +4673,7 @@
                     return;
                 }
             }
-                    
+
             // editor.cmd.do('insertHTML', '<iframe src="' + link + '" style="width:650px;height: 366px" frameborder="0"></iframe>');
             editor.cmd.do('insertHTML', '<video src="' + link + '"  controls="controls"></video>');
         }
