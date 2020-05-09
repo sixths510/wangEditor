@@ -4477,10 +4477,12 @@
                 if (!name || !size) {
                     return;
                 }
-
-                if (/\.(pdf|rm|rmvb|3gp|avi|mpeg|mpg|mkv|dat|asf|wmv|flv|mov|mp4|ogg|ogm)$/i.test(name) === false) {
+               
+                if (/\.(rm|rmvb|3gp|avi|mpeg|mpg|mkv|dat|asf|wmv|flv|mov|mp4|ogg|ogm)$/i.test(name) === false) {
                     // 后缀名不合法，不是视频
-                    errInfo.push('\u3010' + name + '\u3011\u4E0D\u662F\u56FE\u7247');
+                    // debugger
+                    errInfo.push('请上传视频');
+                    // errInfo.push('\u3010' + name + '\u3011\u4E0D\u662F\u56FE\u7247');
                     return;
                 }
                 if (maxSize < size) {
