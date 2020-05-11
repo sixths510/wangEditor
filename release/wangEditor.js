@@ -630,7 +630,7 @@
         pasteFilterStyle: true,
 
         // 粘贴内容时，忽略图片。默认关闭
-        pasteIgnoreImg: false,
+        pasteIgnoreImg: true,
 
         // 对粘贴的文字进行自定义处理，返回处理后的结果。编辑器会将处理后的结果粘贴到编辑区域中。
         // IE 暂时不支持
@@ -657,7 +657,7 @@
         uploadImgMaxSize: 5 * 1024 * 1024,
 
         // 配置一次最多上传几个图片
-        // uploadImgMaxLength: 5,
+        uploadImgMaxLength: 1,
 
         // 上传图片，是否显示 base64 格式
         uploadImgShowBase64: false,
@@ -758,6 +758,7 @@
             //     })
             // },
             before: function before(xhr, editor, files) {
+                
                 // 视频上传之前触发
 
                 // 如果返回的结果是 {prevent: true, msg: 'xxxx'} 则表示用户放弃上传
@@ -767,6 +768,7 @@
                 // }
             },
             success: function success(xhr, editor, result) {
+                debugger
                 // 视频上传并返回结果，视频插入成功之后触发
             },
             fail: function fail(xhr, editor, result) {
@@ -4432,7 +4434,7 @@
         },
         //上传视频
         uploadVideo(files) {
-            debugger
+            
             var _this3 = this;
 
             if (!files || !files.length) {
@@ -4477,10 +4479,10 @@
                 if (!name || !size) {
                     return;
                 }
-               
+              
                 if (/\.(rm|rmvb|3gp|avi|mpeg|mpg|mkv|dat|asf|wmv|flv|mov|mp4|ogg|ogm)$/i.test(name) === false) {
                     // 后缀名不合法，不是视频
-                  
+
                     errInfo.push('请上传视频');
                     // errInfo.push('\u3010' + name + '\u3011\u4E0D\u662F\u56FE\u7247');
                     return;
